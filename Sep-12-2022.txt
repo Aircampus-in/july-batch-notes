@@ -1,0 +1,257 @@
+foreach && map
+copyWithin() find() ye sab method me problem hai
+2nd doubt - json.stringify will convert into string ? YES
+toString and JSON.stringify difference
+arr.push is not working 
+https://replit.com/@ac102-batch/Sort-shababali#README.md
+
+1. every => arr.every(function condition);
+
+function isEven(num) {
+  return num%2 == 0;
+}
+
+arr = [1,2,3,4,5];
+2. some => it return boolean. It will return true if any of the
+element of array will satisy the given condition.
+console.log(arr.some(isEven));
+console.log(arr.every(isEven));
+
+3. push:- 1. it will add the value at the end of the array. 
+            2. it will return the new length of the array.
+var len = arr.push(4);
+console.log(len);
+
+4. pop:- 1. it pops/delets the element from the end of the array. 
+            2. it will return that deleted value to us. 
+var lastElement = arr.pop();
+console.log(lastElement);
+
+5. toString():- 
+console.log(arr.toString());
+
+6. reduce:- 
+
+arr = [1,2,3,4,5];
+arr.reduce(function via which we are going to calculate the reducing
+value, InitialValue of that reducing value)
+
+Question:- find the sum of the elements of array.
+
+var sum = 0; // initial value. 
+for(var index = 0; index < arr.length; index++) {
+  sum = sum + arr[index]; // updating inital value. 
+}
+
+console.log(sum); // updated sum as an output. 
+
+var sumByReduce = arr.reduce( (previousValue, currentValue) => previousValue + currentValue
+                  , 100);
+  
+console.log(sumByReduce); // updated sum as an output.
+
+if we will not pass the initial value to reduce function.
+1. it will automatically consider arr[0] as initial value. 
+2. it start loop from the index 1. 
+
+
+Question:- lets reduce the given array to object. 
+
+var tempAns = arr.reduce((previousValue, currentValue, currentIndex) => {
+    previousValue[currentIndex] = currentValue;
+    return previousValue;
+  }, {});
+console.log(tempAns);
+
+7. reverse => it use to reverse the array. 
+console.log(arr.reverse());
+
+8. shift():- 1. removes the first element of the array. 
+            2. it returns the removed element. 
+
+console.log(arr);
+var tem = arr.shift();
+console.log(arr, tem);
+
+
+console.log(arr.shift());
+console.log(arr.shift());
+
+
+while(typeof (i = arr.shift()) != undefined ) {
+  console.log(i);
+}
+
+console.log(arr);
+
+? why this code is running infinte ?
+
+9. sort() :- [2,1,3] => ascending sorting => [1,2,3]
+arr = [2,3,1,4,5];
+arr.sort();
+console.log(arr);
+
+arr.sort( comparing function );
+
+Comparinf function:- (a,b) return some value. 
+1. > 0  => sort a after b.  => ba
+2. < 0 => sort b after a.  => ab
+3. == 0 => keep the order same. => ab, ba
+
+function compareFun(a, b) {
+  return b-a;  // a < b => b - a > 0 => ba
+}
+
+arr.sort(compareFun);
+console.log(arr);
+
+var obj = [
+  {name: "JD", price : 5003},
+  {name:"OLDMONK", price: 900},
+  {name:"Glenfiddich", price: 12003}
+];
+
+
+function compareFun2(a, b) { // {name: "", price: "" }
+  if(b.price % 2 == 0) {
+    return 1;
+  }
+  return b.price - a.price;
+}
+
+obj.sort(compareFun2);
+console.log(obj);
+
+console.log({"a": 5});
+
+10. slice method :- basically used to get the portion of the array. 
+slice();
+slice(start);
+slice(start, end);
+
+default start value = 0;
+default end value = arr.length;
+
+arr = [1,2,3,4,5];
+
+console.log(arr.slice());
+console.log(arr.slice(2));
+console.log(arr.slice(2, 4));
+
+11. splice method:- this method changes the content of the array. Either it will remove
+or add/update any element in the array. 
+
+splice(start)
+splice(start, deleteCount);
+splice(start, deleteCount, element);
+splice(start, deleteCount, element1, element2, element3,....);
+
+default value of deleteCount = arr.length;
+
+arr = [1,2,3,4,5];
+arr.splice(2, 1, 10, 100, 1000);
+console.log(arr);
+
+
+12. fill method:- it basically change the values of the array from the given value.
+fill(value);
+fill(value, start);
+fill(value, start, end);
+
+var arr = [90, 23, 2, 3, 56];
+console.log(arr.fill(4, 2, 4));
+
+Question: implements array fill method.
+
+
+function fillImplementation(arr, value, start, end) {
+  if(start == undefined) {
+    start = 0;
+  }
+  
+  if(end == undefined) {
+    end = arr.length;
+  }
+  
+  for (let i = start; i < end; i++) {
+       arr[i] = value;
+  }
+  return arr;
+}
+
+console.log(fillImplementation([90, 23, 2, 3, 56], 4, 2));
+
+
+
+
+Given an object, 
+return a new object where the value of the object is key for the new object 
+and the keys for the object is values for the new object.
+
+var obj = { a: 'aman', n: 'nikunj' };
+var newObj = {};
+
+var keys = Object.keys(obj);
+var values = Object.values(obj);
+for(var i = 0; i < keys.length; i++) {
+  newObj[values[i]] = keys[i];
+}
+console.log(newObj);
+
+
+for (var key in obj) {
+  var value = obj[key];
+  newObj[value] = key;
+}
+console.log(newObj);
+
+
+Question:- 
+Implement these functions:
+
+1. reverse;
+2. find;
+3. includes;
+4. indexOf;
+5. slice;
+
+
+
+
+
+// Question:- sort the object according to its values.
+
+obj1 = { a: 20, b : 10, c: 100 } // => { b: 10, a: 20, c:100 }
+
+obj = [];
+for( var k in obj1 ) {
+  var temp = { key: k, value: obj1[k] };
+  obj.push(temp);
+}
+
+// var obj = [
+//   {name: "JD", price : 5003},
+//   {name:"OLDMONK", price: 900},
+//   {name:"Glenfiddich", price: 12003}
+// ];
+
+obj.sort(compareFun2);
+
+function compareFun2(a, b) { // {name: "", price: "" }
+  return a.value - b.value;
+}
+
+var sortedObj = {};
+for (var index = 0; index < obj.length; index++) {
+  var key = obj[index].key;
+  var value = obj[index].value;
+  sortedObj[key] = value;
+}
+
+console.log(sortedObj);
+
+
+implementation question
+object sorted
+Searching algorithms -> linear search, binary search. 
+Sorting algorthms -> bubble sort, insertion sort, selection sort, merge sort

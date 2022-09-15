@@ -1,0 +1,133 @@
+const arr = [];
+
+arr[0] = 1;
+
+console.log(arr);
+
+// Props: 
+//   Length;
+  
+const arr1 = [34, 68, 102];
+
+console.log(arr1.length);
+
+for(var index = 0; index < arr1.length; index++) {
+  console.log(arr1[index]);
+}
+
+Methods: 
+1. at() => A method that take integer as a param, returns the value at that 
+index. Params will be positive or negative. 
+Negative params, this method read from the back of the array. 
+
+var arr = [90, 30, 60];
+console.log(arr.at(2)); // 60
+console.log(arr.at(-2)); // 30
+console.log(arr.at(5)); // undefined
+
+2. keys(); => new Array Iterator Object to us. It contains keys for
+each index in the array 
+
+var arrObj = arr.keys();
+for( var key of arrObj) {
+  console.log(key);
+}
+console.log(arr.keys());
+
+3. concat() : method use to merge two or more arrays. 
+
+var arr1 = [ 120, 40, 80 ];
+
+var arr2 = arr1.concat(arr);
+console.log(arr2);
+
+4. copyWithin(): this method is basically use for copying the things internally.
+The array length should be preserved. 
+ 
+arr = ['a', 'b', 'c', 'd', 'e']
+arr.copyWithin(0, 3);
+
+console.log(arr);
+
+copyWithin(target); => copyWithin(target, 0, arr.length-1);
+copyWithin(target, start); => copyWithin(target, start, arr.length-1);
+copyWithin(target, start, end);
+
+Target, start , end will be positive or negative 
+target => from which index we wanted to change the value. 
+start => first index from where we wanted to pick the value to copy.
+end => last index from where we wanted to pick the value to copy.
+
+console.log(arr.copyWithin(5, 3, 4));
+
+5.1 find:- The First Value that satisfied the condition.
+5.2 findIndex:- The First Value's INDEX that satisfied the condition.
+5.3 findLast:- :- The LAST Value that satisfied the condition.
+5.4 findLastIndex:- The Last Value's INDEX that satisfied the condition. 
+they all return undefined if nothing is found.
+
+var arr1 = [ 15, 17, 10, 122 ];
+
+function isEven(num) {
+  
+}
+
+// var value = arr1.find(element => element > 10);
+// var value = arr1.find(isEven);
+
+// Ques:- find first element in the array whose second last digit is 1;
+function isSecondLastDigit1 (num) {
+  num = Math.floor(num/10);
+  var lD = num % 10;
+  return lD == 1;
+}
+var value = arr1.find(isSecondLastDigit1);
+// // var value = arr1.findLast(isEven);
+console.log(value);
+
+6. every() => it tests that every element present in the array is satisfying the 
+given condition and return boolean to us. 
+
+var value = arr1.every(num => {
+  num = Math.floor(num/10);
+  var lD = num % 10;
+  return lD == 1;
+});
+console.log(value);
+
+7. filter() => filter the elements according to the given condition. 
+var value = arr1.filter(isSecondLastDigit1);
+console.log(value);
+value[1] = 123;
+console.log(value);
+console.log(arr1);
+
+8. includes() => it will return boolean by check that given value is present or not. 
+console.log(arr1.includes(17));
+
+9. indexOf() => it will return the index of the given value. if it is not present it will return -1. 
+console.log(arr1.indexOf(177));
+
+10. lastIndexOf() => it will return the last index of the given value. if it is not present it will return -1. 
+console.log(arr1.lastIndexOf(177));
+
+11. forEach() => 
+arr1.forEach(ele => console.log(ele));
+
+12. isArray() => format Array.isArray(param), check whether the param is Array or not. 
+return boolean. 
+console.log(Array.isArray(34));
+
+13. join() => returning a string by joining all the elements of the array. 
+console.log(arr1.join(''));
+
+14. map() => method return new array, populated with the 
+result of calling a provided function on every element in the array. 
+var arr4 = arr1.map(ele => 2*ele);
+console.log(arr1);
+console.log(arr4);
+
+
+
+var c = arr1.filter(ele => ele > 10).map(ele => ele*3).join(' ');
+console.log(c);

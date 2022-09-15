@@ -1,0 +1,180 @@
+// shallow copy and deep copy. 
+
+var obj1 = { a: 5 }
+var obj2 = obj1 // shallow copy. 
+
+obj2["b"] = 9;
+
+console.log(obj1);
+
+var obj3 = { ...obj1 } // deep copy.
+
+obj3["c"] = 10;
+console.log(obj1);
+
+
+Nested loop.
+for(var i = 0; i < 10; i++) {
+  str = "";
+  for(var j = i; j < 10; j++) {
+    str += j;
+  }
+  console.log(str);
+}
+
+Nested Object
+
+const obj1 = {
+  a: 5,
+  b: {
+    c: 9,
+    d: 8
+  }
+}
+
+obj1["c"] = 90
+
+const obj3 = {};
+
+obj1 = obj3;
+
+console.log(obj1);
+
+
+
+const obj2 = { ...obj1, b : { ...obj1["b"] } }; // deep copied.
+
+obj2["b"]["c"] = 10;
+obj2["a"] = 6
+
+console.log(obj2);
+console.log(obj1);
+
+console.log(obj1);
+
+console.log(JSON.stringify(obj1));
+
+
+var strJson = JSON.stringify(obj1); // stringifying the object
+var obj3 = JSON.parse(strJson); // making object via json string. 
+deep copied the complete nested object. 
+
+// var obj4 = structuredClone(obj1);
+
+console.log(obj3);
+
+
+Cricket match 22 players. if someone make a run. do we have to go manually and update the
+run of him/her. 
+
+No, we will write a function and call it to update the run of players. 
+
+Task:- Write a function to update the run of players?
+
+player = {
+  "name": "JoeRoot",
+  "run": 234,
+  "boundaries": 5
+}
+
+RunPerBall = [0,1,2,6,1,10,10];
+
+function updatePlayerStats(ones, twos, threes, fours, sixes, extras) {
+  updateRun();
+  increaseBoundaries();
+  
+}
+
+function updateRun(player, run) {
+  player["run"] += run;
+}
+
+function increaseBoundaries(player) {
+  player["boundaries"]++;
+}
+
+this keyword. 
+
+obj = {
+  this.
+}
+
+function name () {
+  this.a = 5;
+  
+  var obj = {
+    b : 6,
+    print: function() {
+      console.log(this.b);
+    }
+  }
+}
+
+this.
+
+3 players
+
+const players = {
+  JoeRoot1: {
+    "name": "JoeRoot1",
+    "run": 234,
+    "boundaries": 5
+  },
+  JoeRoot2: {
+    "name": "JoeRoot2",
+    "run": 234,
+    "boundaries": 5
+  },
+  JoeRoot3: {
+    "name": "JoeRoot3",
+    "run": 234,
+    "boundaries": 5
+  }
+}
+
+
+const playerList = [{
+    "name": "JoeRoot1",
+    "run": 234,
+    "boundaries": 5
+  },
+  {
+    "name": "JoeRoot2",
+    "run": 234,
+    "boundaries": 5
+  },
+  {
+    "name": "JoeRoot3",
+    "run": 234,
+    "boundaries": 5
+  }
+]
+
+
+var arr = [2, 4, 6, 8, 9, 10]
+
+const arr1 = [ "aman", "daya", "ravi" ]; // creation
+const arr2 = []; // empty array. 
+
+// var str = "aircampus";
+// str[0] // read. 
+// str[0] = "b"; //updaing
+
+console.log(arr1[3]); // read. 
+
+arr1[2] = "shabab"; // updating
+
+console.log(arr1[2]); // reading. 
+
+console.log(typeof(arr1));
+
+// Props & methods. 
+// 1. length
+
+console.log(arr1.length);
+
+
+console.log(arr1);
+for( var index = 0; index < arr1.length; index++ ) {
+  console.log(arr1[index]);
+}

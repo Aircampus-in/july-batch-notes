@@ -1,0 +1,107 @@
+Objects
+
+Memory, References, Deep copy, Shallow copy, Nested. 
+
+Object Overview. 
+var str = "aman";
+
+// CREATE the OBJECT    C
+var Student = {
+  b: 6,
+  c: function () {
+    console.log(" I am a function ")
+  },
+  Student: "Edtech"
+}
+
+GET or READ   R
+Student.a => 5
+Student["a"] => 5
+
+Student["air campus"]
+
+UPDATE   U
+Student["a"] = 7
+Student["D"] = 90
+console.log(Student);
+
+DELETE   D 
+delete Student.a;
+console.log(Student["Student"])
+
+CRUD Operations -> Create, Read, Update, Delete
+
+for (var a in Student) {
+  console.log(a, " ", Student[a]);
+}
+
+var keys = Object.keys(Student);
+var values = Object.values(Student);
+
+for( var i = 0; i < keys.length; i++ ) {
+  if (typeof(values[i]) == 'function') {
+    console.log(keys[i], " ", values[i]());
+  } else {
+    console.log(keys[i], " ", values[i]);
+  }
+}
+
+
+
+
+var obj1 = { a: 5 };
+var obj2 = obj1;
+var obj3 = { a: 5 };
+
+obj2["b"] = 6;
+
+console.log(obj2);
+
+console.log(obj1 == obj2); // true
+console.log(obj1 == obj3); // false
+
+
+var str = "aman";
+var str1 = str;
+
+var obj1 = { a: 5 };
+var obj2 = obj1;
+
+shallow copy. 
+
+shallow copy -> means that certain (sub-)values are 
+still connected to the original variable.
+
+var obj1 = { a: 5 };
+var obj2 = obj1;
+
+Deep copy -> means that all of the values of the new variable are 
+copied and disconnected from the original variable.
+
+var obj1 = { a : 5 }
+var obj2 = {};
+
+for (var key in obj1) {
+  var value = obj1[key];
+  obj2[key] = value;
+}
+
+console.log(obj2);
+
+obj2["b"] = 6;
+
+console.log(obj1);
+console.log(obj2);
+
+spread operator = ...
+
+var obj1 = { a : 5 }
+var obj2 = { ...obj1 };
+
+var obj3 = { c : 7 }
+
+var obj2 = { ...obj1, ...obj3, ...{} }
+
+obj2["b"] = 6;
+console.log(obj2);
+console.log(obj1);

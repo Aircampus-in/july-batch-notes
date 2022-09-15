@@ -1,0 +1,265 @@
+H.W
+Question1:- Use two pointer approach. Given a binary array( array contains only O and 1)
+we have to sort the array OR we have to separate 0 and 1 like 0 should be in left of the
+array and 1 should in right of the array. 
+
+example:- Input = [1,1,0,1,0];
+output = [0,0,1,1,1]
+
+Question 2:- Given two objects, check whether both of them are equal or not.
+Equal Object means => Both Object have same keys associated with same values.
+
+example:-
+Input 1
+Obj1 = { a: 23, b: 34, c: 89 } 
+Obj2 = { a: 23, b: 34, c: 89 } 
+
+Ouput true;
+
+Input 2
+Obj1 = { b: 34, a: 23, c: 89 } 
+Obj2 = { a: 23, b: 34, c: 89 }
+
+Ouput true;
+
+Input 3
+
+Obj1 = { b: 34, a: 23, c: 890 } 
+Obj2 = { a: 23, b: 34, c: 89 }
+
+Ouput false;
+
+Input 2
+Obj1 = { b: 34, a: { v: 90 }, c: 89 } 
+Obj2 = { a: { v: 90 }, b: 34, c: 89 }
+
+output true;
+
+
+Class
+
+1. reverse;
+2. find;
+3. includes;
+4. indexOf;
+5. slice;
+
+
+1. reverse:- we just have to return the reverse of the given array. 
+
+var arr = [1,2,3,4,5,6,7,8];
+
+function Reverse (arr) {
+  var reverseArr = [];
+  for(var index = arr.length - 1; index >= 0; index--) {
+    reverseArr[arr.length - index - 1] = arr[index];
+  }
+  
+  return reverseArr;
+}
+
+two-pointer approach.
+function Reverse (arr) {
+  var left = 0;
+  var right = arr.length - 1;
+  
+  while(left <= right) {
+    var temp = arr[left];
+    arr[left] = arr[right];
+    arr[right] = temp;
+    left++;
+    right--;
+  }
+  
+  return arr;
+}
+
+console.log(Reverse(arr));
+
+2. includes:- params = arr, value
+includes(arr, value, start)
+default value start = 0
+
+function Include(arr, value, start) {
+  if(start == undefined) {
+    start = 0;
+  }
+  
+  var isPresent = false;
+  for(var index = start; index < arr.length; index++) {
+    if(arr[index] == value) {
+      isPresent = true;
+    }
+  }
+  
+  return isPresent;
+}
+
+console.log(Include(arr, 10));
+
+
+3. indexOf :- it is returning the index of the element in the array. 
+params = arr, value;
+
+
+function indexOf(arr, value, start) {
+  if(start == undefined) {
+      start = 0;
+    }
+  
+  var indexOfEle = -1;
+  for(var index = start; index < arr.length; index++) {
+    if(arr[index] == value) {
+      return index;
+    }
+  }
+  
+  return indexOfEle;
+}
+
+console.log(indexOf(arr, 3));
+
+
+2. find:- I will return the first value that satisfies the given condition. 
+
+function divisibleBy5(num) {
+  return num % 5 == 0;
+}
+
+console.log(arr.find(greaterthan5));
+
+params = arr, func;
+
+function Find(arr, func) {
+  
+    for(var index = 0; index < arr.length; index++) {
+      if(func(arr[index])) {
+        return  arr[index];
+      }
+    }
+    
+    return undefined;
+}
+
+
+console.log(Find(arr, divisibleBy5));
+
+
+Mutation => we are mutating the values. 
+
+const num = 5;
+var numToString = num.toString();
+
+arr =>
+arr.push() 
+arr.splice()
+
+alphaNumeric:- 
+
+RegEx => Regular Expression
+
+the given word is of 2 alphabets.
+ab nb, kj, lo
+
+if (string.length == 2 && string[0] >= 'a' && string[0] <= 'z' && string[1] >= 'a' &&
+string[1] <= 'z') {
+  //code
+}
+
+exp = "[a-z][a-z]"
+
+if(str.match(exp)) {
+  
+}
+
+
+Searching Algorithms. 
+
+1. Linear Search
+2. binary search 
+
+1 + 1 + 1 + 1 + 1 + .... + 1 = n 
+
+Time Complexity, TC:- Time Taken by the code written. 
+unit = consider it as 1. 
+Write:- O(TC); // O(n) 
+Read:- O of TC; // O of n;
+
+1. there is a string of length n. 
+for() // to print every char of the string. n times => O(n). 
+
+if (a > 6) { // O(1);
+  
+}
+
+a = 5;
+b = 6;
+c = 3;
+O(1)
+
+
+whenever we calculate TC, we calculate it in a generic format. 
+
+function indexOf(arr, value, start) {
+  
+  if(start == undefined) { // O(1)
+      start = 0; // O(1)
+    }
+  
+  var indexOfEle = -1; // O(1)
+  for(var index = start; index < arr.length; index++) { // O(arr.length)
+    if(arr[index] == value) {// O(1)
+      return index;
+    }
+  }
+  
+  return indexOfEle; O(1)
+  
+}
+
+O(1) + O(1) + O(arr.length) = O (arr.length)
+
+TC = O(n) => n is the length of array. 
+
+While calculating the TC => always take the maximum value from it. 
+
+
+
+for(var i = 0; i < n; i++) {  // O(n*m)
+  for( var j = 0; j < m; j++) { // O(m)
+    console.log(i,j); // O(1)
+  }
+}
+
+O(m) + .... + O(m)  [n times]  = O(n*m)
+
+
+2 + 2 + 2 + .... + 2 = 20 = 2 * 10
+
+Multiplication == repeated addition & addition
+Division == repeated subtraction.
+
+3 + 3 + 3 = 3*3
+
+O(n * m);
+
+funciton isEven(num) { // O(1)
+  if(num%2 == 0) {
+    return true;
+  } 
+  return false;
+}
+
+function isEven(num) { // O(n) n == num
+while(num > 0) {
+  num = num - 2;
+}
+if(num == 0) {
+  return true;
+} else {
+  return false;
+}
+}
+
+console.log(isEven(5));
+console.log(isEven(4));
