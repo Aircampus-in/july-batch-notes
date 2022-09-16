@@ -87,11 +87,11 @@ x = a*a => a is the sqaure root of x.
 2. console.log(Math.sqrt(num));
 3. console.log(Math.pow(n,0.5));
 
-H.w = try to implement Math.pow(a,b);
-Everyone should be able to write a code having O(b);
-You can try to think the solution of O(logb);
-hint is binary search but not directly. 
-hint is try to expand the power and think on that
+// H.w = try to implement Math.pow(a,b);
+// Everyone should be able to write a code having O(b);
+// You can try to think the solution of O(logb);
+// hint is binary search but not directly. 
+// hint is try to expand the power and think on that
 2*8 => 2*2*2*2*2*2*2*2
 
 Question:- Implement Math.sqrt;
@@ -159,7 +159,7 @@ function sqrtUsingBinarySearch(value) {
     return -1;
 }
 
-TC = O(logn); where n is the input.
+// TC = O(logn); where n is the input.
 
 
 
