@@ -48,7 +48,7 @@ function binarySearch(arr, value) {
         if(value > arr[mid]) {
         left = mid + 1;
         } else {
-            right = mid;
+            right = mid - 1;
         }
     }
 
@@ -67,7 +67,7 @@ function binarySearch(arr, value, left, right) {
     if(value > arr[mid]) {
         return binarySearch(arr, value, mid + 1, right);
     } else {
-        return binarySearch(arr, value, left, mid);
+        return binarySearch(arr, value, left, mid-1);
     }
 }
 Time c: log(n)
@@ -151,7 +151,7 @@ function sqrtUsingBinarySearch(value) {
             return mid;
         }
         if(value < mid*mid) {
-            right = mid;
+            right = mid-1;
         } else {
             left = mid+1;
         }
