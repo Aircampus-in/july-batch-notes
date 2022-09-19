@@ -120,24 +120,10 @@ function sort(arr) {
 // 2. try to think about, how to it change it for descending. 
 // 3. Think on the time complexity. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// H.W
+// don't use the arr.sort();
+// Question. find the 1st and second largest number present in the Array?
+// Ans -> Selection sort algorithm or Bubble sort algorithm.
 
 
 
