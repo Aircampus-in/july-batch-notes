@@ -88,9 +88,25 @@ function sort(arr) {
 // H.W
 // 1. dry run on the test case [2, 1, 3, 7, 5, 4, 6]
 // 2. how to change this code for descending.
-// 3. what is the time complexity here.
-// 4. can we implement the same algorithm in a different way. 
+// 3. what is the time complexity here. O(n^2)
+// 4. can we implement the same algorithm in a different way.
 
+// 2. 
+function sortInDesc(arr) {
+    for ( var index = 0 ; index < arr.length; index++ ) {
+        var largestElementIndex = index;
+        for( var ind = index; ind < arr.length; ind++) {
+            if (arr[largestElementIndex] < arr[ind]) {
+                largestElementIndex = ind;
+            }
+        }
+        // element present at index, largestElementIndex
+        var temp = arr[index];
+        arr[index] = arr[largestElementIndex];
+        arr[largestElementIndex] = temp;
+    }
+    return arr;
+}
 
 
 // Bubble sort. 
@@ -102,9 +118,15 @@ function sort(arr) {
 
 // [1, 2, 4, 5, 7]
 
+// In every pass, we are going to check every adjacent pairs and if
+// that pairs are not in correct order, we will swap them.
+
+// After every pass, the array started sorted from the end. 
+// because we are pushing the maximum element to the end
+
 function sort(arr) {
-    for ( var index = 0 ; index < arr.length; index++ ) {
-        for( var ind = 0; ind < arr.length - 1; ind++) {
+    for ( var index = 0 ; index < arr.length - 1; index++ ) {
+        for( var ind = 0; ind < arr.length - index - 1; ind++) {
             if( arr[ind] > arr[ind + 1]) {
                 var temp = arr[ind];
                 arr[ind] = arr[ind + 1];
@@ -118,17 +140,25 @@ function sort(arr) {
 // H.W
 // 1. dry run on the test case [2, 1, 3, 7, 5, 4, 6]
 // 2. try to think about, how to it change it for descending. 
-// 3. Think on the time complexity. 
+// 3. Think on the time complexity. O(n^2);
+
+function sortInDesc(arr) {
+    for ( var index = 0 ; index < arr.length - 1; index++ ) {
+        for( var ind = 0; ind < arr.length - index - 1; ind++) {
+            if( arr[ind] < arr[ind + 1]) {
+                var temp = arr[ind];
+                arr[ind] = arr[ind + 1];
+                arr[ind + 1] = temp;
+            }
+        }
+    }
+    return arr;
+}
 
 // H.W
 // don't use the arr.sort();
 // Question. find the 1st and second largest number present in the Array?
 // Ans -> Selection sort algorithm or Bubble sort algorithm.
-
-
-
-
-
 
 
 
