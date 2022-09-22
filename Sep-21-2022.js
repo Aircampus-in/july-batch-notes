@@ -5,48 +5,80 @@
 
 // [left, mid]   [mid+1, right]
 
-// function merge(arr, left, mid, right) {
-//     // arr1 = arr [left...mid]
-//     // arr2 = arr [mid+1 ... right]
-//     var i = left, j = mid+1; // i for arr1, j for arr2
-//     var ans = [];
-//     var arr1Length = mid - left + 1;
-//     var arr2Length = right - mid;
+function merge(arr, left, mid, right) {
+    // arr1 = arr [left...mid]
+    // arr2 = arr [mid+1 ... right]
+    arr1 = [];
+    for(var index = left; index <= mid; index++) {
+        arr1.push(arr[index]);
+    }
 
-//     while( i < arr1Length && j < arr2Length ){
-//         if(arr[i] < arr2[j]) {
-//             ans.push(arr1[i]);
-//             i++;
-//         } else {
-//             ans.push(arr2[j]);
-//             j++;
-//         }
-//     }
-//     while( i < arr1Length ) {
-//         ans.push(arr1[i]);
-//         i++;
-//     }
-//     while( j < arr2Length ) {
-//         ans.push(arr2[j]);
-//         j++;
-//     }
-//     return ans;
-// }
+    arr2 = [];
+    for(var index = mid+1; index <= right; index++) {
+        arr2.push(arr[index]);
+    }
 
-// function mergeSort(arr, left, right) {
-//     if( left < right) {
-//         mid = left + (right - left) / 2;
-//         mergeSort(arr, left, mid); // left array
-//         mergeSort(arr, mid + 1, right);
+    var i = 0, j = 0; // i for arr1, j for arr2
+    var ans = [];
+    while( i < arr1.length && j < arr2.length ) {
+        if(arr1[i] < arr2[j]) {
+            ans.push(arr1[i]);
+            i++;
+        } else {
+            ans.push(arr2[j]);
+            j++;
+        }
+    }
+    while( i < arr1.length ) {
+        ans.push(arr1[i]);
+        i++;
+    }
+    while( j < arr2.length ) {
+        ans.push(arr2[j]);
+        j++;
+    }
 
-//         var ans = merge(arr, left, mid, right);
-//         for(var index = left; index <= right; index++) {
-//             arr[index] = ans[index-left];
-//         }
-//     }
+    var i = 0;
+    for(index = left; index <= right; index++) {
+        // arr[index] = ans[index-left];
+        arr[index] = ans[i];
+        i++;
+    }
 
-//     return;
-// }
+    return ans;
+}
+// arr.length = 4
+// arr = [4,2,8,6]; //  [2,4,8,6] -> [2,4, 6, 8] -> [2,4,6,8]
+
+function mergeSort(arr, left, right) {
+    if(left >= right ) {
+        return;
+    }
+    
+        mid = left + Math.floor((right - left) / 2); 
+        mergeSort(arr, left, mid); 
+        mergeSort(arr, mid + 1, right); 
+        merge(arr, left, mid, right); 
+
+        // for(var index = left ; index <= right; index++ ) {
+        //     arr[index] = ans[index - left];
+        // }
+        // console.log(arr);
+        // return;
+    
+
+    // return;
+}
+
+arr = [2,4,5,6,1, 8,9, 10];
+// console.log(arr);
+mergeSort(arr, 0, 7);
+console.log(arr);
+// console.log(arr);
+merge(arr, 0, 3 ,7);
+// console.log(arr);
+
+// index.skskj
 
 // mergeSort(arr, 0, arr.length-1);
 
@@ -83,48 +115,48 @@
 
 // Lets use array to implement stack. 
 
-var stack = {
-    st: [],
-    size: 4,
-    insert: function(num) {
-        if(this.st.length >= this.size) {
-            console.log("Overloaded");
-        } else {
-            this.st.push(num);
-            this.printStack();
-        }
-    },
+// var stack = {
+//     st: [],
+//     size: 4,
+//     insert: function(num) {
+//         if(this.st.length >= this.size) {
+//             console.log("Overloaded");
+//         } else {
+//             this.st.push(num);
+//             this.printStack();
+//         }
+//     },
     
-    deleteFromStack: function() {
-        if(this.st.length == 0) {
-            console.log("underLoaded");
-        } else {
-            this.st.pop();
-            this.printStack();
-        }
-    },
+//     deleteFromStack: function() {
+//         if(this.st.length == 0) {
+//             console.log("underLoaded");
+//         } else {
+//             this.st.pop();
+//             this.printStack();
+//         }
+//     },
     
-    getTop: function() {
-        if(this.st.length == 0) {
-            console.log("no value present");
-        } else {
-            var top = this.st[this.st.length - 1];
-            console.log(top);
-        }
-    },
+//     getTop: function() {
+//         if(this.st.length == 0) {
+//             console.log("no value present");
+//         } else {
+//             var top = this.st[this.st.length - 1];
+//             console.log(top);
+//         }
+//     },
 
-    printStack: function() {
-        console.log(this.st);
-    }
-}
+//     printStack: function() {
+//         console.log(this.st);
+//     }
+// }
 
-stack.printStack();
-stack.insert(23);
-stack.insert(32);
-stack.insert(47);
-stack.insert(75);
-stack.deleteFromStack();
-stack.getTop();
+// stack.printStack();
+// stack.insert(23);
+// stack.insert(32);
+// stack.insert(47);
+// stack.insert(75);
+// stack.deleteFromStack();
+// stack.getTop();
 
 
 // Queue=>  2,3,4,5
