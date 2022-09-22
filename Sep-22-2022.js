@@ -47,7 +47,7 @@ insert(3);
 insert(4);
 deleteFromQueue();
 read();
-deleteFromQueue();
+deleteFromQueue(); 
 deleteFromQueue();
 deleteFromQueue();
 deleteFromQueue();

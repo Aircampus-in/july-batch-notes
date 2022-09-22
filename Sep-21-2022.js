@@ -166,7 +166,7 @@ merge(arr, 0, 3 ,7);
     // b. you can delete from the front.
     // c. you can only read the front. 
     // d. First In First Out. FIFO.
-
+ 
     // H.W
     // 1. dry run the merge sort code. [ 8, 7, 4, 3, 5 ]
     // 2. Implement functions for Queue. 
